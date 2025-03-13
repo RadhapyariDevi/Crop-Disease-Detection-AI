@@ -1,5 +1,6 @@
 package com.radhapyari.ai_for_crop_diseases_detection
 
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
@@ -11,6 +12,7 @@ import androidx.camera.core.*
 import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import com.radhapyari.ai_for_crop_diseases_detection.FruitScanActivity
 import com.radhapyari.ai_for_crop_diseases_detection.databinding.ActivityCerealScanBinding
 import java.io.File
 import java.text.SimpleDateFormat
@@ -72,6 +74,10 @@ class CerealScanActivity : AppCompatActivity() {
                     val savedUri = Uri.fromFile(photoFile)
                     val msg = "Photo Saved"
                     Toast.makeText(this@CerealScanActivity, "$msg $savedUri", Toast.LENGTH_LONG).show()
+
+                    val intent = Intent(this@CerealScanActivity, CerealResultActivity::class.java)
+                    intent.putExtra("image_uri", savedUri.toString())
+                    startActivity(intent)
                 }
 
                 override fun onError(exception: ImageCaptureException) {
