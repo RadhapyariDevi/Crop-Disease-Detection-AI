@@ -39,7 +39,6 @@
         android:layout_width="240dp"
         android:layout_height="90dp"
         android:src="@drawable/upload"
-        android:scaleType="centerCrop"
         android:clickable="true"
         android:focusable="true"
         android:layout_marginTop="16dp"/>

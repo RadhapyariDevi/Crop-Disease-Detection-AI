@@ -63,7 +63,16 @@ dependencies {
     implementation(libs.compose.ui.graphics)
     implementation(libs.compose.ui.tooling.preview)
     implementation(libs.compose.material3)
+    implementation(libs.gson)
 
     implementation(libs.material)
+
+    // chatbot
+    implementation(libs.retrofit)
+    implementation(libs.retrofit.gson)
+    implementation(libs.converter.gson)
+    implementation(libs.okhttp)
+    implementation(libs.logging.interceptor)
+
 
 }

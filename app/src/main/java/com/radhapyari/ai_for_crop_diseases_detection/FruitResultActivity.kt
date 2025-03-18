@@ -18,18 +18,15 @@ import org.tensorflow.lite.support.tensorbuffer.TensorBuffer
 import java.io.IOException
 import java.nio.ByteBuffer
 import java.nio.ByteOrder
-import androidx.compose.material3.Button
-import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.ModalBottomSheet
-import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
-import androidx.compose.material3.rememberBottomSheetScaffoldState
-import androidx.compose.material3.rememberModalBottomSheetState
+
 import android.net.Uri
+import android.util.Log
 import android.view.View
 import android.widget.ImageView
 import com.google.android.material.bottomsheet.BottomSheetBehavior
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
+import java.io.InputStream
 
 
 class FruitResultActivity : AppCompatActivity() {
@@ -37,6 +34,12 @@ class FruitResultActivity : AppCompatActivity() {
     private lateinit var imageView: ImageView
     private lateinit var result: TextView
     private var imageSize = 128
+
+    data class DiseaseInfo(
+        val name: String,
+        val cause: String,
+        val prevention: List<String>
+    )
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -62,9 +65,9 @@ class FruitResultActivity : AppCompatActivity() {
         val bottomSheet: View = findViewById(R.id.sheet)
         val bottomSheetBehavior = BottomSheetBehavior.from(bottomSheet)
         bottomSheetBehavior.peekHeight = 200
-        bottomSheetBehavior.state = BottomSheetBehavior.STATE_EXPANDED
-        val resultTextView1: TextView = findViewById(R.id.disease_name)
-        resultTextView1.text = "Please Wait..."
+        bottomSheetBehavior.state = BottomSheetBehavior.STATE_HIDDEN
+//        val resultTextView1: TextView = findViewById(R.id.disease_name)
+//        resultTextView1.text = "Please Wait..."
 
 
         if (bitmap != null) {
@@ -76,49 +79,66 @@ class FruitResultActivity : AppCompatActivity() {
             val resultIndex = ClassifyImage(resizedImage)
 
             val class_name = arrayOf(
-                "Apple___Apple_scab",
-                "Apple___Black_rot",
-                "Apple___Cedar_apple_rust",
-                "Apple___healthy",
-                "Blueberry___healthy",
-                "Cherry_(including_sour)___Powdery_mildew",
-                "Cherry_(including_sour)___healthy",
-                "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot",
-                "Corn_(maize)___Common_rust_",
-                "Corn_(maize)___Northern_Leaf_Blight",
-                "Corn_(maize)___healthy",
-                "Grape___Black_rot",
-                "Grape___Esca_(Black_Measles)",
-                "Grape___Leaf_blight_(Isariopsis_Leaf_Spot)",
-                "Grape___healthy",
-                "Orange___Haunglongbing_(Citrus_greening)",
-                "Peach___Bacterial_spot",
-                "Peach___healthy",
-                "Pepper,_bell___Bacterial_spot",
-                "Pepper,_bell___healthy",
-                "Potato___Early_blight",
-                "Potato___Late_blight",
-                "Potato___healthy",
-                "Raspberry___healthy",
-                "Soybean___healthy",
-                "Squash___Powdery_mildew",
-                "Strawberry___Leaf_scorch",
-                "Strawberry___healthy",
-                "Tomato___Bacterial_spot",
-                "Tomato___Early_blight",
-                "Tomato___Late_blight",
-                "Tomato___Leaf_Mold",
-                "Tomato___Septoria_leaf_spot",
-                "Tomato___Spider_mites Two-spotted_spider_mite",
-                "Tomato___Target_Spot",
-                "Tomato___Tomato_Yellow_Leaf_Curl_Virus",
-                "Tomato___Tomato_mosaic_virus",
-                "Tomato___healthy"
+                "Apple_scab",
+                "Bacterial_spot",
+                "Black_rot",
+                "Cedar_apple_rust",
+                "Cercospora_leaf_spot Gray_leaf_spot",
+                "Common_rust",
+                "Early_blight",
+                "Esca_(Black_Measles)",
+                "Haunglongbing_(Citrus_greening)",
+                "Late_blight",
+                "Leaf_Mold",
+                "Leaf_blight_(Isariopsis_Leaf_Spot)",
+                "Leaf_scorch",
+                "Northern_Leaf_Blight",
+                "Septoria_leaf_spot",
+                "Spider_mites Two-spotted_spider_mite",
+                "Target_Spot",
+                "Tomato_Yellow_Leaf_Curl_Virus",
+                "Tomato_mosaic_virus",
+                "healthy"
             )
+
+
+            val jsonString = loadJSONFromAssets()
+            Log.d("DEBUG", "JSON String Loaded: ${jsonString?.take(100)}") // Print first 100 chars
+
+            val diseaseMap = parseDiseaseData(jsonString)
+
+            if (diseaseMap != null) {
+                Log.d("DEBUG", "Disease Map Loaded Successfully, Size: ${diseaseMap.size}")
+            } else {
+                Log.e("DEBUG", "Disease Map is NULL")
+            }
+
+            val diseaseKey = class_name[resultIndex]
+            Log.d("DEBUG", "Predicted Disease Key: $diseaseKey")
+
+            val diseaseInfo = diseaseMap?.get(diseaseKey)
+
+            if (diseaseInfo != null) {
+                Log.d("DEBUG", "Disease Info Retrieved: ${diseaseInfo.name}")
+            } else {
+                Log.e("DEBUG", "No data found for key: $diseaseKey")
+            }
+
+
+
+
             bottomSheetBehavior.state = BottomSheetBehavior.STATE_EXPANDED
 
-            val resultTextView: TextView = findViewById(R.id.disease_name)
-            resultTextView.text = "Prediction: ${class_name[resultIndex]}"
+            if (diseaseInfo != null) {
+                val resultDiseaseView: TextView = findViewById(R.id.disease_name)
+                resultDiseaseView.text = diseaseInfo.name
+
+                val resultCauseView: TextView = findViewById(R.id.cause_context)
+                resultCauseView.text = diseaseInfo.cause
+
+                val resultPreventionView: TextView = findViewById(R.id.prevention_context)
+                resultPreventionView.text = diseaseInfo.prevention.joinToString("\n")
+            }
 
         }
 
@@ -157,4 +177,36 @@ class FruitResultActivity : AppCompatActivity() {
         model.close()
         return resultIndex
     }
+
+
+    private fun loadJSONFromAssets(): String? {
+        return try {
+            val inputStream: InputStream = assets.open("crop_diseases.json")
+            val size = inputStream.available()
+            val buffer = ByteArray(size)
+            inputStream.read(buffer)
+            inputStream.close()
+            String(buffer, Charsets.UTF_8)
+        } catch (e: Exception) {
+            Log.e("DEBUG", "LoadJson error: ${e.message}")
+            null
+        }
+    }
+
+
+
+    private fun parseDiseaseData(jsonString: String?): Map<String, DiseaseInfo>? {
+        if (jsonString == null) return null
+
+        return try {
+            val gson = Gson()
+            val type = object : TypeToken<Map<String, DiseaseInfo>>() {}.type
+            gson.fromJson(jsonString, type)
+        } catch (e: Exception) {
+            Log.e("DEBUG", "JSON Parsing error: ${e.message}")
+            null
+        }
+    }
 }
+
+

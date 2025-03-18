@@ -1,0 +1,17 @@
+{
+    "Wheat__Yellow_Rust": {
+        "name": "Yellow Rust",
+        "cause": "Puccinia striiformis",
+        "prevention": ["Use resistant varieties", "Apply fungicides when symptoms appear", "Avoid dense planting", "Monitor fields regularly"]
+    },
+    "Wheat__Healthy": {
+        "name": "Healthy plant",
+        "cause": "No disease",
+        "prevention": ["Use disease-resistant varieties", "Maintain soil health", "Monitor fields regularly", "Implement good agricultural practices"]
+    },
+    "Wheat__Brown_Rust": {
+        "name": "Brown Rust",
+        "cause": "Puccinia triticina",
+        "prevention": ["Plant resistant varieties", "Apply fungicides early", "Practice crop rotation", "Remove infected plant debris"]
+    }
+}

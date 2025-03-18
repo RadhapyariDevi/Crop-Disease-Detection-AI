@@ -1,0 +1,41 @@
+{
+    "Anthracnose_rot_produce": {
+        "name": "Anthracnose Rot",
+        "cause": "Fungal infection by Colletotrichum species",
+        "prevention": [
+            "Use disease-free seeds and plants",
+            "Apply fungicides at early infection stages",
+            "Ensure proper spacing for airflow",
+            "Rotate crops to prevent fungal buildup"
+        ]
+    },
+    " black_rot_produce": {
+        "name": "Black Rot",
+        "cause": "Xanthomonas campestris bacterial infection",
+        "prevention": [
+            "Plant resistant varieties",
+            "Avoid overhead watering",
+            "Remove and destroy infected plants",
+            "Use copper-based bactericides"
+        ]
+    },
+    "botrytis_rot_produce": {
+        "name": "Botrytis Rot",
+        "cause": "Botrytis cinerea fungus",
+        "prevention": [
+            "Ensure good air circulation",
+            "Avoid excessive nitrogen fertilization",
+            "Remove infected plant debris",
+            "Use appropriate fungicides"
+        ]
+    },
+    "healthy": {
+        "name": "Healthy",
+        "cause": "Your plant is perfectly fine",
+        "prevention": [
+            "Ensure good air circulation",
+            "Avoid excessive watering",
+            "Remove infected plant debris nearby"
+        ]
+    }
+}

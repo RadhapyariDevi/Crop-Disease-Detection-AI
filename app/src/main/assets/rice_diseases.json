@@ -1,0 +1,62 @@
+{
+    "leaf_scald": {
+        "name": "Leaf Scald",
+        "cause": "Microdochium oryzae",
+        "prevention": [
+            "Use resistant varieties",
+            "Avoid excessive nitrogen fertilization",
+            "Improve field drainage",
+            "Apply fungicides if necessary"
+        ]
+    },
+    "brown_spot": {
+        "name": "Brown Spot",
+        "cause": "Bipolaris oryzae",
+        "prevention": [
+            "Use disease-resistant varieties",
+            "Maintain proper soil fertility",
+            "Ensure good field drainage",
+            "Use fungicides if necessary"
+        ]
+    },
+    "Healthy": {
+        "name": "Healthy plant",
+        "cause": "No disease",
+        "prevention": [
+            "Use disease-resistant varieties",
+            "Practice crop rotation",
+            "Maintain proper irrigation and soil fertility",
+            "Monitor fields regularly"
+        ]
+    },
+    "bacterial_leaf_blight": {
+        "name": "Bacterial Leaf Blight",
+        "cause": "Xanthomonas oryzae pv. oryzae bacteria",
+        "prevention": [
+            "Use resistant varieties",
+            "Plant disease-free seeds",
+            "Avoid excessive nitrogen fertilizer",
+            "Remove and destroy infected plant debris"
+        ]
+    },
+    "leaf_blast": {
+        "name": "Leaf Blast",
+        "cause": "Magnaporthe oryzae",
+        "prevention": [
+            "Grow resistant varieties of the crop",
+            "Avoid excessive nitrogen fertilizer",
+            "Ensure good air circulation",
+            "Apply appropriate fungicides"
+        ]
+    },
+    "narrow_brown_spot": {
+        "name": "Narrow Brown Spot",
+        "cause": "Cercospora janseana",
+        "prevention": [
+            "Use resistant varieties of the crop",
+            "Maintain balanced soil fertility",
+            "Improve drainage and field hygiene",
+            "Apply fungicides if necessary"
+        ]
+    }
+}

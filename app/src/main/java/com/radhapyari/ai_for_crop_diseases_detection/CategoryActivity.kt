@@ -2,7 +2,12 @@ package com.radhapyari.ai_for_crop_diseases_detection
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
 import android.widget.ImageView
+import android.widget.Spinner
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 
 class CategoryActivity : AppCompatActivity() {
@@ -10,28 +15,46 @@ class CategoryActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_category)
 
-        // Retrieve the previous key-value pair correctly
+
         val previousSelection = intent.getStringExtra("clickedImage") // "scanButton" or "uploadButton"
 
-        // ImageView references
-        val cereal = findViewById<ImageView>(R.id.cereal)
-        val fruit = findViewById<ImageView>(R.id.fruit)
 
-        // Set click listeners for each category image with unique activity redirection
-        cereal.setOnClickListener {
-            if (previousSelection == "scanButton") {
-                startActivity(Intent(this, CerealScanActivity::class.java))
-            } else {
-                startActivity(Intent(this, CerealUploadActivity::class.java))
+        val fruit = findViewById<ImageView>(R.id.fruit)
+        val cerealDropdown = findViewById<Spinner>(R.id.cerealDropdown)
+
+
+        val cerealOptions = arrayOf("Select Type", "RICE", "WHEAT")
+        val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, cerealOptions)
+        cerealDropdown.adapter = adapter
+
+
+        cerealDropdown.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(parent: AdapterView<*>, view: View?, position: Int, id: Long) {
+                val selectedCereal = cerealOptions[position]
+
+                // Prevent "Select Type" from triggering an intent
+                if (selectedCereal != "Select Type") {
+                    val intent = if (previousSelection == "scanButton") {
+                        Intent(this@CategoryActivity, CerealScanActivity::class.java)
+                    } else {
+                        Intent(this@CategoryActivity, CerealUploadActivity::class.java)
+                    }
+                    intent.putExtra("cerealType", selectedCereal)
+                    startActivity(intent)
+                }
             }
+
+            override fun onNothingSelected(parent: AdapterView<*>) {}
         }
 
+
         fruit.setOnClickListener {
-            if (previousSelection == "scanButton") {
-                startActivity(Intent(this, FruitScanActivity::class.java))
+            val intent = if (previousSelection == "scanButton") {
+                Intent(this, FruitScanActivity::class.java)
             } else {
-                startActivity(Intent(this, FruitUploadActivity::class.java))
+                Intent(this, FruitUploadActivity::class.java)
             }
+            startActivity(intent)
         }
     }
 }

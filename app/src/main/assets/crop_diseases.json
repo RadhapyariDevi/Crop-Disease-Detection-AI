@@ -1,0 +1,174 @@
+{
+    "Apple_scab": {
+        "name": "Scab disease",
+        "cause": "Fungus (Venturia inaequalis)",
+        "prevention": [
+            "Use resistant varieties",
+            "Prune for better air circulation",
+            "Remove fallen leaves"
+        ]
+    },
+    "Black_rot": {
+        "name": "Black Rot",
+        "cause": "Fungus (Botryosphaeria obtusa)",
+        "prevention": [
+            "Remove infected branches",
+            "Use disease-free planting materials"
+        ]
+    },
+    "Cedar_apple_rust": {
+        "name": "Cedar Rust",
+        "cause": "Fungus (Gymnosporangium juniperi-virginianae)",
+        "prevention": [
+            "Remove nearby cedar trees",
+            "Plant resistant apple varieties"
+        ]
+    },
+    "healthy": {
+        "name": "Healthy",
+        "cause": "No disease detected",
+        "prevention": [
+            "Prune regularly to maintain tree health",
+            "Ensure balanced soil nutrients",
+            "Monitor for early signs of pests"
+        ]
+    },
+
+
+    "Cercospora_leaf_spot Gray_leaf_spot": {
+        "name": "Cercospora Leaf Spot (Grey Leaf Spot)",
+        "cause": "Fungus (Cercospora zeae-maydis)",
+        "prevention": [
+            "Rotate crops",
+            "Use resistant hybrids"
+        ]
+    },
+    "Common_rust": {
+        "name": "Common Rust",
+        "cause": "Fungus (Puccinia sorghi)",
+        "prevention": [
+            "Grow resistant hybrids",
+            "Plant early to avoid peak infection periods"
+        ]
+    },
+    "Northern_Leaf_Blight": {
+        "name": "Northern Leaf Blight",
+        "cause": "Fungus (Exserohilum turcicum)",
+        "prevention": [
+            "Crop rotation",
+            "Avoid dense planting"
+        ]
+    },
+
+    "Esca_(Black_Measles)": {
+        "name": "Black Measles (Esca)",
+        "cause": "Fungal complex",
+        "prevention": [
+            "Avoid wounds in vines",
+            "Prune in dry weather"
+        ]
+    },
+    "Leaf_blight_(Isariopsis_Leaf_Spot)": {
+        "name": "Leaf Blight (Isariopsis Leaf Spot)",
+        "cause": "Fungus (Pseudocercospora vitis)",
+        "prevention": [
+            "Remove leaf litter",
+            "Improve air circulation"
+        ]
+    },
+
+    "Haunglongbing(Citrus_greening)": {
+        "name": "Huanglongbing (Citrus Greening)",
+        "cause": "Bacteria, spread by psyllids",
+        "prevention": [
+            "Remove infected trees",
+            "Control psyllid population"
+        ]
+    },
+    "Bacterial_spot": {
+        "name": "Bacterial Spot",
+        "cause": "Bacterial pathogens",
+        "prevention": [
+            "Remove and destroy infected plant material",
+            "Provide good air circulation"
+        ]
+    },
+
+    "Early_blight": {
+        "name": "Early Blight",
+        "cause": "Fungus (Alternaria solani)",
+        "prevention": [
+            "Rotate crops",
+            "Avoid overhead irrigation"
+        ]
+    },
+    "Late_blight": {
+        "name": "Late Blight",
+        "cause": "Water mold (Phytophthora infestans)",
+        "prevention": [
+            "Use resistant varieties",
+            "Destroy infected plants"
+        ]
+    },
+
+    "Leaf_scorch": {
+        "name": "Leaf Scorch",
+        "cause": "Soil compaction, nutrient deficiency, drought",
+        "prevention": [
+            "Prune affected areas",
+            "Water deeply to promote root growth"
+        ]
+    },
+    "Tomato_Yellow_Leaf_Curl_Virus": {
+        "name": "Yellow Leaf Curl Virus",
+        "cause": "Virus spread by whiteflies",
+        "prevention": [
+            "Control whiteflies ",
+            "Use virus-resistant varieties "
+        ]
+    },
+    "Tomato_mosaic_virus": {
+        "name": "Mosaic Virus",
+        "cause": "Tobacco mosaic virus (TMV), Cucumber mosaic virus (CMV) ",
+        "prevention": [
+            "Use virus-free seeds ",
+            "Control aphid population "
+        ]
+    },
+    "Spider_mites Two-spotted_spider_mite": {
+        "name": "Spider Mites",
+        "cause": "mites",
+        "prevention": [
+            "increase humidity ",
+            "Introduce natural predators (ladybugs) "
+        ]
+    },
+    "Leaf_Mold": {
+        "name": "Leaf Mold",
+        "cause": "Fungus (Passalora fulva)",
+        "prevention": [
+            "Ensure proper air circulation",
+            "Avoid overhead watering",
+            "Remove and destroy infected leaves",
+            "Apply fungicides if necessary"
+        ]
+    },
+
+    "Target_Spot": {
+        "name": "Target Spot",
+        "cause": "fungal pathogen",
+        "prevention": [
+            "reducing the photosynthetic area",
+            "Pruning suckers and older leaves in the lower canopy "
+        ]
+    },
+    "Septoria_leaf_spot": {
+        "name": "Septoria Leaf Spot",
+        "cause": " Fungus (Septoria lycopersici) ",
+        "prevention": [
+            "Rotate crops",
+            "Keep foliage dry"
+        ]
+    }
+
+}

@@ -26,6 +26,17 @@
         android:clickable="true"
         android:focusable="true"
         android:layout_marginTop="16dp"
+        android:layout_gravity="center_horizontal">
+
+    </ImageView>
+
+    <Spinner
+        android:id="@+id/cerealDropdown"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="@android:drawable/btn_dropdown"
+        android:popupBackground="@android:color/white"
         android:layout_gravity="center_horizontal"/>
 
     <ImageView

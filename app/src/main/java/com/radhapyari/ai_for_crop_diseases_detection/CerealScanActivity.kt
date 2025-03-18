@@ -75,8 +75,13 @@ class CerealScanActivity : AppCompatActivity() {
                     val msg = "Photo Saved"
                     Toast.makeText(this@CerealScanActivity, "$msg $savedUri", Toast.LENGTH_LONG).show()
 
+                    // Get selected cereal type
+                    val selectedCereal = intent.getStringExtra("cerealType") ?: "Unknown"
+
+                    // Pass image URI and cereal type
                     val intent = Intent(this@CerealScanActivity, CerealResultActivity::class.java)
                     intent.putExtra("image_uri", savedUri.toString())
+                    intent.putExtra("cereal_type", selectedCereal)
                     startActivity(intent)
                 }
 
@@ -86,6 +91,7 @@ class CerealScanActivity : AppCompatActivity() {
             }
         )
     }
+
 
     private fun startCamera(){
         val cameraProviderFuture = ProcessCameraProvider
