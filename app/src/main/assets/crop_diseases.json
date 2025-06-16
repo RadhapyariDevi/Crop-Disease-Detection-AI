@@ -1,5 +1,5 @@
 {
-    "Apple_scab": {
+    "Apple___Apple_scab": {
         "name": "Scab disease",
         "cause": "Fungus (Venturia inaequalis)",
         "prevention": [
@@ -8,7 +8,7 @@
             "Remove fallen leaves"
         ]
     },
-    "Black_rot": {
+    "Apple___Black_rot": {
         "name": "Black Rot",
         "cause": "Fungus (Botryosphaeria obtusa)",
         "prevention": [
@@ -16,7 +16,7 @@
             "Use disease-free planting materials"
         ]
     },
-    "Cedar_apple_rust": {
+    "Apple___Cedar_apple_rust": {
         "name": "Cedar Rust",
         "cause": "Fungus (Gymnosporangium juniperi-virginianae)",
         "prevention": [
@@ -24,7 +24,7 @@
             "Plant resistant apple varieties"
         ]
     },
-    "healthy": {
+    "Apple___healthy": {
         "name": "Healthy",
         "cause": "No disease detected",
         "prevention": [
@@ -33,9 +33,33 @@
             "Monitor for early signs of pests"
         ]
     },
-
-
-    "Cercospora_leaf_spot Gray_leaf_spot": {
+    "Blueberry___healthy": {
+        "name": "Healthy",
+        "cause": "No disease detected",
+        "prevention": [
+            "Maintain proper pruning",
+            "Ensure good air circulation",
+            "Use balanced fertilizers"
+        ]
+    },
+    "Cherry_(including_sour)___Powdery_mildew": {
+        "name": "Powdery Mildew",
+        "cause": "Fungus (Podosphaera clandestina)",
+        "prevention": [
+            "Space trees for airflow",
+            "Avoid overhead watering"
+        ]
+    },
+    "Cherry_(including_sour)___healthy": {
+        "name": "Healthy",
+        "cause": "No disease detected",
+        "prevention": [
+            "Prune regularly for better air circulation",
+            "Use organic fertilizers",
+            "Avoid excessive moisture"
+        ]
+    },
+    "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot": {
         "name": "Cercospora Leaf Spot (Grey Leaf Spot)",
         "cause": "Fungus (Cercospora zeae-maydis)",
         "prevention": [
@@ -43,7 +67,7 @@
             "Use resistant hybrids"
         ]
     },
-    "Common_rust": {
+    "Corn_(maize)___Common_rust_": {
         "name": "Common Rust",
         "cause": "Fungus (Puccinia sorghi)",
         "prevention": [
@@ -51,7 +75,7 @@
             "Plant early to avoid peak infection periods"
         ]
     },
-    "Northern_Leaf_Blight": {
+    "Corn_(maize)___Northern_Leaf_Blight": {
         "name": "Northern Leaf Blight",
         "cause": "Fungus (Exserohilum turcicum)",
         "prevention": [
@@ -59,8 +83,24 @@
             "Avoid dense planting"
         ]
     },
-
-    "Esca_(Black_Measles)": {
+    "Corn_(maize)___healthy": {
+        "name": "Healthy",
+        "cause": "No disease detected",
+        "prevention": [
+            "Monitor for pests",
+            "Ensure proper soil drainage",
+            "Use crop rotation techniques"
+        ]
+    },
+    "Grape___Black_rot": {
+        "name": "Black Rot",
+        "cause": "Fungus (Guignardia bidwellii)",
+        "prevention": [
+            "Remove infected leaves and vines",
+            "Apply fungicides early"
+        ]
+    },
+    "Grape___Esca_(Black_Measles)": {
         "name": "Black Measles (Esca)",
         "cause": "Fungal complex",
         "prevention": [
@@ -68,7 +108,7 @@
             "Prune in dry weather"
         ]
     },
-    "Leaf_blight_(Isariopsis_Leaf_Spot)": {
+    "Grape___Leaf_blight_(Isariopsis_Leaf_Spot)": {
         "name": "Leaf Blight (Isariopsis Leaf Spot)",
         "cause": "Fungus (Pseudocercospora vitis)",
         "prevention": [
@@ -76,8 +116,16 @@
             "Improve air circulation"
         ]
     },
-
-    "Haunglongbing(Citrus_greening)": {
+    "Grape___healthy": {
+        "name": "Healthy",
+        "cause": "No disease detected",
+        "prevention": [
+            "Regular vineyard inspections",
+            "Prune for better airflow",
+            "Use organic mulching"
+        ]
+    },
+    "Orange___Haunglongbing_(Citrus_greening)": {
         "name": "Huanglongbing (Citrus Greening)",
         "cause": "Bacteria, spread by psyllids",
         "prevention": [
@@ -85,7 +133,7 @@
             "Control psyllid population"
         ]
     },
-    "Bacterial_spot": {
+    "Peach___Bacterial_spot": {
         "name": "Bacterial Spot",
         "cause": "Bacterial pathogens",
         "prevention": [
@@ -93,8 +141,35 @@
             "Provide good air circulation"
         ]
     },
-
-    "Early_blight": {
+    "Peach___healthy": {
+        "name": "Healthy",
+        "cause": "No disease detected",
+        "prevention": [
+            "Monitor for insect pests",
+            "Prune for good sunlight penetration",
+            "Apply organic compost"
+        ]
+    },
+    "Pepper,_bell___Bacterial_spot": {
+        "name": "Bacterial Spot",
+        "cause": "Bacteria (Xanthomonas campestris pv. vesicatoria)",
+        "prevention": [
+            "Use disease-free seeds",
+            "Apply copper-based fungicides",
+            "Avoid overhead watering",
+            "Rotate crops to reduce disease buildup"
+        ]
+    },
+    "Pepper,_bell___healthy": {
+        "name": "Healthy",
+        "cause": "No disease detected",
+        "prevention": [
+            "Ensure adequate spacing for airflow",
+            "Avoid overwatering",
+            "Use organic fertilizers"
+        ]
+    },
+    "Potato___Early_blight": {
         "name": "Early Blight",
         "cause": "Fungus (Alternaria solani)",
         "prevention": [
@@ -102,7 +177,7 @@
             "Avoid overhead irrigation"
         ]
     },
-    "Late_blight": {
+    "Potato___Late_blight": {
         "name": "Late Blight",
         "cause": "Water mold (Phytophthora infestans)",
         "prevention": [
@@ -110,8 +185,42 @@
             "Destroy infected plants"
         ]
     },
-
-    "Leaf_scorch": {
+    "Potato___healthy": {
+        "name": "Healthy",
+        "cause": "No disease detected",
+        "prevention": [
+            "Use certified seed potatoes",
+            "Rotate crops annually",
+            "Ensure well-drained soil"
+        ]
+    },
+    "Raspberry___healthy": {
+        "name": "Healthy",
+        "cause": "No disease detected",
+        "prevention": [
+            "Provide proper support structures",
+            "Prune old canes regularly",
+            "Monitor for aphids"
+        ]
+    },
+    "Soybean___healthy": {
+        "name": "Healthy",
+        "cause": "No disease detected",
+        "prevention": [
+            "Implement crop rotation",
+            "Ensure proper irrigation",
+            "Monitor for early disease symptoms"
+        ]
+    },
+    "Squash___Powdery_mildew": {
+        "name": "Powdery Mildew",
+        "cause": "Fungus (Podosphaera clandestina)",
+        "prevention": [
+            "Space trees for airflow ",
+            "Avoid overhead watering "
+        ]
+    },
+    "Strawberry___Leaf_scorch": {
         "name": "Leaf Scorch",
         "cause": "Soil compaction, nutrient deficiency, drought",
         "prevention": [
@@ -119,31 +228,40 @@
             "Water deeply to promote root growth"
         ]
     },
-    "Tomato_Yellow_Leaf_Curl_Virus": {
-        "name": "Yellow Leaf Curl Virus",
-        "cause": "Virus spread by whiteflies",
+    "Strawberry___healthy": {
+        "name": "Healthy",
+        "cause": "No disease detected",
         "prevention": [
-            "Control whiteflies ",
-            "Use virus-resistant varieties "
+            "Use straw mulch",
+            "Monitor for fungal infections",
+            "Water in the morning to avoid moisture buildup"
         ]
     },
-    "Tomato_mosaic_virus": {
-        "name": "Mosaic Virus",
-        "cause": "Tobacco mosaic virus (TMV), Cucumber mosaic virus (CMV) ",
+    "Tomato___Bacterial_spot": {
+        "name": "Bacterial Spot",
+        "cause": "Bacterial pathogens",
         "prevention": [
-            "Use virus-free seeds ",
-            "Control aphid population "
+            "Remove and destroy infected plant material",
+            "Provide good air circulation"
         ]
     },
-    "Spider_mites Two-spotted_spider_mite": {
-        "name": "Spider Mites",
-        "cause": "mites",
+    "Tomato___Early_blight": {
+        "name": "Early Blight",
+        "cause": "Fungus (Alternaria solani)",
         "prevention": [
-            "increase humidity ",
-            "Introduce natural predators (ladybugs) "
+            "Rotate crops",
+            "Avoid overhead irrigation"
         ]
     },
-    "Leaf_Mold": {
+    "Tomato___Late_blight": {
+        "name": "Late Blight",
+        "cause": "Water mold (Phytophthora infestans)",
+        "prevention": [
+            "Use resistant varieties",
+            "Destroy infected plants"
+        ]
+    },
+    "Tomato___Leaf_Mold": {
         "name": "Leaf Mold",
         "cause": "Fungus (Passalora fulva)",
         "prevention": [
@@ -153,8 +271,40 @@
             "Apply fungicides if necessary"
         ]
     },
-
-    "Target_Spot": {
+    "Tomato___healthy": {
+        "name": "Healthy",
+        "cause": "No disease detected",
+        "prevention": [
+            "Provide proper plant support",
+            "Ensure soil fertility",
+            "Monitor for pest infestations"
+        ]
+    },
+    "Tomato___Tomato_Yellow_Leaf_Curl_Virus": {
+        "name": "Yellow Leaf Curl Virus",
+        "cause": "Virus spread by whiteflies",
+        "prevention": [
+            "Control whiteflies ",
+            "Use virus-resistant varieties "
+        ]
+    },
+    "Tomato___Tomato_mosaic_virus": {
+        "name": "Mosaic Virus",
+        "cause": "Tobacco mosaic virus (TMV), Cucumber mosaic virus (CMV) ",
+        "prevention": [
+            "Use virus-free seeds ",
+            "Control aphid population "
+        ]
+    },
+    "Tomato___Spider_mites Two-spotted_spider_mite": {
+        "name": "Spider Mites",
+        "cause": "mites",
+        "prevention": [
+            "increase humidity ",
+            "Introduce natural predators (ladybugs) "
+        ]
+    },
+    "Tomato___Target_Spot": {
         "name": "Target Spot",
         "cause": "fungal pathogen",
         "prevention": [
@@ -162,7 +312,7 @@
             "Pruning suckers and older leaves in the lower canopy "
         ]
     },
-    "Septoria_leaf_spot": {
+    "Tomato___Septoria_leaf_spot": {
         "name": "Septoria Leaf Spot",
         "cause": " Fungus (Septoria lycopersici) ",
         "prevention": [
@@ -170,5 +320,4 @@
             "Keep foliage dry"
         ]
     }
-
 }

@@ -18,7 +18,6 @@ class firstCategoryActivity : AppCompatActivity() {
         val previousSelection = intent.getStringExtra("clickedImage")
 
         val LeavesButton = findViewById<ImageView>(R.id.leaves)
-        val ProduceButton = findViewById<ImageView>(R.id.produce)
         val chatbotButton = findViewById<ImageView>(R.id.chatbotButton)
 
         LeavesButton.setOnClickListener {
@@ -34,18 +33,6 @@ class firstCategoryActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        ProduceButton.setOnClickListener {
-            val intent = if (previousSelection == "scanButton") {
-                Intent(this, ProduceScanActivity::class.java).apply {
-                    putExtra("clickedImage", "scanButton")
-                }
-            } else {
-                Intent(this, ProduceUploadActivity::class.java).apply {
-                    putExtra("clickedImage", "uploadButton")
-                }
-            }
-            startActivity(intent)
-        }
 
 
 

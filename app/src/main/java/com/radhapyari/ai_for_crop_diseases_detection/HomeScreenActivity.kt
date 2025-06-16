@@ -34,8 +34,7 @@ class HomeScreenActivity : AppCompatActivity() {
 
 
         chatbotButton.setOnClickListener {
-            val intent = Intent(this, ChatbotActivity::class.java)
-            startActivity(intent)
+            //nothing
         }
     }
 }

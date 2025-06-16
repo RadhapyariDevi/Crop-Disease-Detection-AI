@@ -78,18 +78,28 @@ class CerealResultActivity : AppCompatActivity() {
 
             val resultIndex: Int
 
+
+
             if (cerealType.equals("wheat", ignoreCase = true)) {
                 resultIndex = classifyWheat(resizedImage)
 
+                if (resultIndex == -1) {
+                    resultDiseaseView.text = "Unknown"
+                    resultCauseView.text = "The model is not confident about this prediction."
+                    resultPreventionView.text = "Please consult an expert for further diagnosis."
+                    bottomSheetBehavior.state = BottomSheetBehavior.STATE_EXPANDED
+                    return
+                }
+
                 val class_name = arrayOf(
-                    "Wheat__Yellow_Rust",
+                    "Wheat__Brown_Rust",
                     "Wheat__Healthy",
-                    "Wheat__Brown_Rust"
+                    "Wheat__Yellow_Rust"
                 )
 
                 // Verify resultIndex
                 if (resultIndex < 0 || resultIndex >= class_name.size) {
-                    Log.e("DEBUG", "Invalid resultIndex: $resultIndex")
+                    resultDiseaseView.text = "Unknown disease type"
                 } else {
                     val diseaseKey = class_name[resultIndex]
                     Log.d("DEBUG", "Disease Key: $diseaseKey")
@@ -190,9 +200,10 @@ class CerealResultActivity : AppCompatActivity() {
         val outputFeature0 = outputs.outputFeature0AsTensorBuffer
         val outputArray = outputFeature0.floatArray
         val resultIndex = outputArray.indices.maxByOrNull { outputArray[it] } ?: -1
-
+        val maxProbability = outputArray.maxOrNull() ?: 0f
         model.close()
-        return resultIndex
+        return if (maxProbability < 0.7) -1 else resultIndex
+
     }
 
 
