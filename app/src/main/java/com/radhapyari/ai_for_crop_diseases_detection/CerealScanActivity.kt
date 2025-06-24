@@ -2,18 +2,23 @@ package com.radhapyari.ai_for_crop_diseases_detection
 
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.graphics.BitmapFactory
 import android.net.Uri
 import android.os.Bundle
+import android.text.Html
 import android.util.Log
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.camera.core.*
 import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import com.radhapyari.ai_for_crop_diseases_detection.Constants.MODEL_PATH
 import com.radhapyari.ai_for_crop_diseases_detection.FruitScanActivity
 import com.radhapyari.ai_for_crop_diseases_detection.databinding.ActivityCerealScanBinding
+import com.radhapyari.ai_for_crop_diseases_detection.utils.LeafDetector
 import java.io.File
 import java.text.SimpleDateFormat
 import java.util.Locale
@@ -27,12 +32,17 @@ class CerealScanActivity : AppCompatActivity() {
     private lateinit var outputDirectory: File
     private lateinit var cameraExecutor: ExecutorService
 
+    private lateinit var leafdetector: LeafDetector
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
 
         binding = ActivityCerealScanBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        leafdetector = LeafDetector(this,MODEL_PATH)
+        leafdetector.setUp()
 
         outputDirectory = getOutputDirectory()
         cameraExecutor = Executors.newSingleThreadExecutor()
@@ -67,22 +77,39 @@ class CerealScanActivity : AppCompatActivity() {
         )
 
         val outputOptions = ImageCapture.OutputFileOptions.Builder(photoFile).build()
+
         imageCapture.takePicture(
             outputOptions, ContextCompat.getMainExecutor(this),
             object : ImageCapture.OnImageSavedCallback {
+
                 override fun onImageSaved(outputFileResults: ImageCapture.OutputFileResults) {
                     val savedUri = Uri.fromFile(photoFile)
                     val msg = "Photo Saved"
-                    Toast.makeText(this@CerealScanActivity, "$msg $savedUri", Toast.LENGTH_LONG).show()
+
+                    val bitmap = BitmapFactory.decodeFile(photoFile.absolutePath)
+                    val leafFound = leafdetector.detectLeaf(bitmap)
 
                     // Get selected cereal type
-                    val selectedCereal = intent.getStringExtra("cerealType") ?: "Unknown"
+                    if(leafFound) {
+                        val selectedCereal = intent.getStringExtra("cerealType") ?: "Unknown"
 
-                    // Pass image URI and cereal type
-                    val intent = Intent(this@CerealScanActivity, CerealResultActivity::class.java)
-                    intent.putExtra("image_uri", savedUri.toString())
-                    intent.putExtra("cereal_type", selectedCereal)
-                    startActivity(intent)
+                        // Pass image URI and cereal type
+                        val intent =
+                            Intent(this@CerealScanActivity, CerealResultActivity::class.java)
+                        intent.putExtra("image_uri", savedUri.toString())
+                        intent.putExtra("cereal_type", selectedCereal)
+                        startActivity(intent)
+                    }
+                    else{
+                        AlertDialog.Builder(this@CerealScanActivity)
+                            .setMessage(Html.fromHtml("<b>No leaf was found in the image.</b> \nPlease try again with a clear picture of a leaf."))
+                            .setPositiveButton("OK") { dialog, _ ->
+                                dialog.dismiss()
+//                                startCamera()
+                            }
+                            .setCancelable(false)
+                            .show()
+                    }
                 }
 
                 override fun onError(exception: ImageCaptureException) {

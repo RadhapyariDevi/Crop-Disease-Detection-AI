@@ -3,19 +3,14 @@ package com.radhapyari.ai_for_crop_diseases_detection
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import android.Manifest
 import android.graphics.Bitmap
 import android.graphics.Typeface
 import android.media.ThumbnailUtils
 import android.provider.MediaStore
 import android.widget.Button
 import android.widget.TextView
-import androidx.activity.result.contract.ActivityResultContracts
 import org.tensorflow.lite.DataType
 import org.tensorflow.lite.support.tensorbuffer.TensorBuffer
-import java.io.IOException
 import java.nio.ByteBuffer
 import java.nio.ByteOrder
 
@@ -125,8 +120,8 @@ class FruitResultActivity : AppCompatActivity() {
 
             if (confidence < confidenceThreshold) {
                 val resultDiseaseView: TextView = findViewById(R.id.disease_name)
-                resultDiseaseView.text = "Sorry, I couldn’t confidently identify the disease from this image.\n" +
-                        " I perform best on crops such as apple, grape, tomato, potato, corn, peach, strawberry, pepper and similar commonly supported plants."
+                resultDiseaseView.text = "Sorry, Couldn't detect the disease.\n\n" +
+                        " I work best with crops like apple, grape, tomato, potato, corn, and similar common plants."
                 resultDiseaseView.setTypeface(null, Typeface.NORMAL)
                 resultDiseaseView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 20f)
                 val resultCauseView: TextView = findViewById(R.id.cause_context)

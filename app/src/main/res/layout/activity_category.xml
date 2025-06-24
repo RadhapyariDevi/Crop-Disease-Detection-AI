@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:gravity="center"
     android:padding="0dp"
@@ -13,53 +13,56 @@
         android:id="@+id/categoryHeadline"
         android:layout_width="200dp"
         android:layout_height="120dp"
+        android:layout_gravity="center_horizontal"
         android:scaleType="fitCenter"
         android:src="@drawable/category"
-        android:layout_gravity="center_horizontal"/>
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.217" />
 
     <ImageView
         android:id="@+id/cereal"
         android:layout_width="300dp"
-        android:layout_height="80dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:src="@drawable/cereal"
-        android:scaleType="centerCrop"
+        android:scaleType="fitCenter"
+        android:adjustViewBounds="true"
         android:clickable="true"
         android:focusable="true"
-        android:layout_marginTop="16dp"
-        android:layout_gravity="center_horizontal">
-
-    </ImageView>
+        android:layout_gravity="center_horizontal"
+        app:layout_constraintTop_toBottomOf="@+id/categoryHeadline"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
 
     <Spinner
         android:id="@+id/cerealDropdown"
-        android:layout_width="250dp"
+        android:layout_width="230dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_gravity="center_horizontal"
         android:background="@android:drawable/btn_dropdown"
         android:popupBackground="@android:color/white"
-        android:layout_gravity="center_horizontal"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.714"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cereal" />
 
     <ImageView
         android:id="@+id/fruit"
         android:layout_width="300dp"
-        android:layout_height="80dp"
+        android:layout_height="wrap_content"
         android:src="@drawable/fruit"
-        android:scaleType="centerCrop"
         android:clickable="true"
         android:focusable="true"
-        android:layout_marginTop="16dp"
-        android:layout_gravity="center_horizontal"/>
+        android:scaleType="fitCenter"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center_horizontal"
+        app:layout_constraintTop_toBottomOf="@+id/cerealDropdown"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
 
-    <ImageView
-        android:id="@+id/chatbotButton"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:src="@drawable/chatbot"
-        android:scaleType="centerCrop"
-        android:clickable="true"
-        android:focusable="true"
-        android:clipToOutline="true"
-        android:layout_marginTop="16dp"
-        android:layout_gravity="center_horizontal"/>
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

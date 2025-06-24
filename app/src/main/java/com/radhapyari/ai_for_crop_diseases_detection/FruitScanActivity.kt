@@ -4,12 +4,15 @@ import android.app.ComponentCaller
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.net.Uri
 import android.os.Bundle
+import android.text.Html
 import android.util.Log
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.camera.core.*
 import androidx.camera.lifecycle.ProcessCameraProvider
@@ -21,8 +24,9 @@ import java.text.SimpleDateFormat
 import java.util.Locale
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
-import android.media.ThumbnailUtils
-
+import com.radhapyari.ai_for_crop_diseases_detection.Constants.MODEL_PATH
+import com.radhapyari.ai_for_crop_diseases_detection.FruitUploadActivity
+import com.radhapyari.ai_for_crop_diseases_detection.utils.LeafDetector
 
 
 class FruitScanActivity : AppCompatActivity() {
@@ -32,8 +36,8 @@ class FruitScanActivity : AppCompatActivity() {
     private lateinit var outputDirectory: File
     private lateinit var cameraExecutor: ExecutorService
 
-    private lateinit var imageView: ImageView
-    private var imageSize = 128
+    // leaf detector
+    private lateinit var Leafdetector: LeafDetector
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,6 +45,12 @@ class FruitScanActivity : AppCompatActivity() {
 
         binding = ActivityFruitScanBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+
+        //leaf detector-----------------------------------
+        Leafdetector = LeafDetector(this,MODEL_PATH)
+        Leafdetector.setUp()
+        //---------------------------------------------------
 
         outputDirectory = getOutputDirectory()
         cameraExecutor = Executors.newSingleThreadExecutor()
@@ -66,8 +76,12 @@ class FruitScanActivity : AppCompatActivity() {
         return if (mediaDir != null && mediaDir.exists()) mediaDir else filesDir
     }
 
+
+    // photo taking
     private fun takePhoto() {
+
         val imageCapture = imageCapture ?: return
+
         val photoFile = File(
             outputDirectory,
             SimpleDateFormat(Constants.FILE_NAME_FORMAT, Locale.getDefault())
@@ -75,17 +89,36 @@ class FruitScanActivity : AppCompatActivity() {
         )
 
         val outputOptions = ImageCapture.OutputFileOptions.Builder(photoFile).build()
+
         imageCapture.takePicture(
             outputOptions, ContextCompat.getMainExecutor(this),
             object : ImageCapture.OnImageSavedCallback {
                 override fun onImageSaved(outputFileResults: ImageCapture.OutputFileResults) {
                     val savedUri = Uri.fromFile(photoFile)
-                    val msg = "Photo Saved"
-                    Toast.makeText(this@FruitScanActivity, "$msg $savedUri", Toast.LENGTH_LONG).show()
 
-                    val intent = Intent(this@FruitScanActivity, FruitResultActivity::class.java)
-                    intent.putExtra("image_uri", savedUri.toString())
-                    startActivity(intent)
+
+                    // -------------RUN Leaf Detector -------------
+                    val bitmap = BitmapFactory.decodeFile(photoFile.absolutePath)
+                    val leafFound = Leafdetector.detectLeaf(bitmap)
+
+
+
+
+                    if(leafFound) {
+                        val intent = Intent(this@FruitScanActivity, FruitResultActivity::class.java)
+                        intent.putExtra("image_uri", savedUri.toString())
+                        startActivity(intent)
+                    }
+                    else{
+                        AlertDialog.Builder(this@FruitScanActivity)
+                            .setMessage(Html.fromHtml("<b>No leaf was found in the image.</b> \nPlease try again with a clear picture of a leaf."))
+                            .setPositiveButton("OK") { dialog, _ ->
+                                dialog.dismiss()
+//                                startCamera()
+                            }
+                            .setCancelable(false)
+                            .show()
+                    }
 
                 }
 
@@ -153,6 +186,7 @@ class FruitScanActivity : AppCompatActivity() {
     override fun onDestroy() {
         super.onDestroy()
         cameraExecutor.shutdown()
+        Leafdetector.clear()
     }
 
 }

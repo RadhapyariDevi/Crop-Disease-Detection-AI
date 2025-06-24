@@ -56,5 +56,12 @@ class CategoryActivity : AppCompatActivity() {
             }
             startActivity(intent)
         }
+
+
+    }
+    override fun onResume() {
+        super.onResume()
+        val cerealDropdown = findViewById<Spinner>(R.id.cerealDropdown)
+        cerealDropdown.setSelection(0, false) // Reset to default without triggering listener
     }
 }

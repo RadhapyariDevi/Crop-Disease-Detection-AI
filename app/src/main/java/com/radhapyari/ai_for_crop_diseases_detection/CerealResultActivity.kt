@@ -4,10 +4,7 @@ import android.graphics.Bitmap
 import android.media.ThumbnailUtils
 import android.os.Bundle
 import android.widget.ImageView
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import android.net.Uri
 import android.provider.MediaStore
 import android.util.Log
@@ -27,7 +24,6 @@ import java.nio.ByteOrder
 
 class CerealResultActivity : AppCompatActivity() {
 
-    private lateinit var imageView: ImageView
     private var imageSize = 128
 
     data class DiseaseInfo(
@@ -84,9 +80,9 @@ class CerealResultActivity : AppCompatActivity() {
                 resultIndex = classifyWheat(resizedImage)
 
                 if (resultIndex == -1) {
-                    resultDiseaseView.text = "Unknown"
-                    resultCauseView.text = "The model is not confident about this prediction."
-                    resultPreventionView.text = "Please consult an expert for further diagnosis."
+                    resultDiseaseView.text = "Unknown disease"
+                    resultCauseView.text = "No data found"
+                    resultPreventionView.text = "No data found"
                     bottomSheetBehavior.state = BottomSheetBehavior.STATE_EXPANDED
                     return
                 }
