@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".fragments.HomeFragment"
+    android:id="@+id/homeScreen"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="0dp"
+    android:background="#071091">
+
+    <ImageView
+        android:id="@+id/heading"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/heading"/>
+
+    <ImageView
+        android:id="@+id/appIcon"
+        android:layout_width="240dp"
+        android:layout_height="240dp"
+        android:src="@drawable/icon"
+        android:scaleType="centerCrop"
+        android:layout_marginTop="16dp"/>
+
+    <ImageView
+        android:id="@+id/scanButton"
+        android:layout_width="240dp"
+        android:layout_height="90dp"
+        android:src="@drawable/scan"
+        android:scaleType="centerCrop"
+        android:clickable="true"
+        android:focusable="true"
+        android:layout_marginTop="20dp"/>
+
+    <ImageView
+        android:id="@+id/uploadButton"
+        android:layout_width="240dp"
+        android:layout_height="90dp"
+        android:src="@drawable/upload"
+        android:clickable="true"
+        android:focusable="true"
+        android:layout_marginTop="16dp"/>
+    <ImageView
+        android:id="@+id/profile"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:src="@drawable/avatar_profile"
+        android:layout_marginTop="20dp"/>
+
+
+</LinearLayout>

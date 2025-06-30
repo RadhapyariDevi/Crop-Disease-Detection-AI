@@ -20,42 +20,19 @@
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/logo"
         android:label="@string/app_name"
         android:largeHeap="true"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
         android:theme="@style/Theme.AI_for_Crop_Diseases_Detection"
         tools:targetApi="31" >
-        <activity
-            android:name=".ChatbotActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ProduceResultActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ProduceUploadActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ProduceScanActivity"
-            android:exported="false" />
-        <activity
-            android:name=".firstCategoryActivity"
-            android:exported="false" />
-        <activity
-            android:name=".CerealResultActivity"
-            android:exported="false" />
+
         <activity
             android:name=".FruitResultActivity"
             android:exported="false" />
         <activity
-            android:name=".CerealUploadActivity"
-            android:exported="false" />
-        <activity
             android:name=".FruitUploadActivity"
-            android:exported="false" />
-        <activity
-            android:name=".CerealScanActivity"
             android:exported="false" />
         <activity
             android:name=".FruitScanActivity"
@@ -64,7 +41,7 @@
             android:name=".CategoryActivity"
             android:exported="false" />
         <activity
-            android:name=".HomeScreenActivity"
+            android:name=".MainActivity"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -72,9 +49,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".MainActivity"
-            android:exported="false" />
+
     </application>
 
 </manifest>

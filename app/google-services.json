@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1061642286568",
+    "project_id": "agricare-b4b7d",
+    "storage_bucket": "agricare-b4b7d.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1061642286568:android:07ca9b668d2e561415e05d",
+        "android_client_info": {
+          "package_name": "com.radhapyari.ai_for_crop_diseases_detection"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCtdmzCcIqDXp7ZJ2JpOfvPQeaxGPS-U6Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

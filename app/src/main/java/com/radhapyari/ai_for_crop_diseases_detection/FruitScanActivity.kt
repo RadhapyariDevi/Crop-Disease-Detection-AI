@@ -1,15 +1,13 @@
 package com.radhapyari.ai_for_crop_diseases_detection
 
-import android.app.ComponentCaller
+
 import android.content.Intent
 import android.content.pm.PackageManager
-import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.net.Uri
 import android.os.Bundle
 import android.text.Html
 import android.util.Log
-import android.widget.ImageView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AlertDialog
@@ -25,7 +23,6 @@ import java.util.Locale
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
 import com.radhapyari.ai_for_crop_diseases_detection.Constants.MODEL_PATH
-import com.radhapyari.ai_for_crop_diseases_detection.FruitUploadActivity
 import com.radhapyari.ai_for_crop_diseases_detection.utils.LeafDetector
 
 
@@ -114,7 +111,7 @@ class FruitScanActivity : AppCompatActivity() {
                             .setMessage(Html.fromHtml("<b>No leaf was found in the image.</b> \nPlease try again with a clear picture of a leaf."))
                             .setPositiveButton("OK") { dialog, _ ->
                                 dialog.dismiss()
-//                                startCamera()
+
                             }
                             .setCancelable(false)
                             .show()

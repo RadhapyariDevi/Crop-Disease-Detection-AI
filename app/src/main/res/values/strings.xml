@@ -1,3 +1,34 @@
 <resources>
     <string name="app_name">AgriCare</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="skip"><u>Skip</u></string>
+    <string name="result">RESULT</string>
+    <string name="sign_up"><u>Sign up</u></string>
+    <string name="have_not_registered">Have not \nRegistered !</string>
+    <string name="password">Password</string>
+    <string name="email">Email</string>
+    <string name="sign_in"><u>Sign in</u></string>
+    <string name="already_registered">Already \nRegistered !</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="username">Username</string>
+    <string name="agricare">AgriCare</string>
+    <!-- Preference Titles -->
+    <string name="messages_header">Messages</string>
+    <string name="sync_header">Sync</string>
+
+    <!-- Messages Preferences -->
+    <string name="signature_title">Your signature</string>
+    <string name="reply_title">Default reply action</string>
+
+    <!-- Sync Preferences -->
+    <string name="sync_title">Sync email periodically</string>
+    <string name="attachment_title">Download incoming attachments</string>
+    <string name="attachment_summary_on">Automatically download attachments for incoming emails
+    </string>
+    <string name="attachment_summary_off">Only download attachments when manually requested</string>
+    <string name="user">User</string>
+    <string name="update">Update</string>
+    <string name="new_password">New password</string>
+    <string name="current_password">current password</string>
 </resources>
