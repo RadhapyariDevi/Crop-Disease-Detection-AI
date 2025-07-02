@@ -11,10 +11,12 @@ import android.view.ViewGroup
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import androidx.navigation.NavController
+import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
-import com.radhapyari.ai_for_crop_diseases_detection.FruitScanActivity
+import androidx.activity.OnBackPressedCallback
 import com.radhapyari.ai_for_crop_diseases_detection.R
 import com.radhapyari.ai_for_crop_diseases_detection.databinding.FragmentProfileBinding
 
@@ -25,6 +27,7 @@ class ProfileFragment : Fragment() {
     private val auth = FirebaseAuth.getInstance()
     private val firestore = FirebaseFirestore.getInstance()
     private lateinit var binding: FragmentProfileBinding
+    private lateinit var navControl: NavController
 
 
     override fun onCreateView(
@@ -38,6 +41,17 @@ class ProfileFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        navControl = Navigation.findNavController(view)
+
+//        requireActivity().onBackPressedDispatcher.addCallback(
+//            viewLifecycleOwner,
+//            object : OnBackPressedCallback(true) {
+//                override fun handleOnBackPressed() {
+//                    findNavController().navigate(R.id.homeFragment)
+//                }
+//            }
+//        )
 
         loadUserData()
 
