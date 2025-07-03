@@ -3,7 +3,6 @@ package com.radhapyari.ai_for_crop_diseases_detection.fragments
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.text.Html
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -16,7 +15,6 @@ import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
-import androidx.activity.OnBackPressedCallback
 import com.radhapyari.ai_for_crop_diseases_detection.R
 import com.radhapyari.ai_for_crop_diseases_detection.databinding.FragmentProfileBinding
 

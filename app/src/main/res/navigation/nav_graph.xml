@@ -57,13 +57,15 @@
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.radhapyari.ai_for_crop_diseases_detection.fragments.HomeFragment"
-        android:label="HomeFragment" >
+        android:label="HomeFragment"
+        tools:layout="@layout/fragment_home">
         <action
             android:id="@+id/action_homeFragment_to_profileFragment"
             app:destination="@id/profileFragment" />
         <action
             android:id="@+id/action_homeFragment_to_signInFragment"
-            app:destination="@id/signInFragment" />
+            app:destination="@id/signInFragment"
+            />
     </fragment>
     <fragment
         android:id="@+id/profileFragment"
@@ -72,6 +74,8 @@
         tools:layout="@layout/fragment_profile" >
         <action
             android:id="@+id/action_profileFragment_to_signInFragment"
-            app:destination="@id/signInFragment" />
+            app:destination="@id/signInFragment"
+            app:popUpTo="@+id/profileFragment"
+            app:popUpToInclusive="true"/>
     </fragment>
 </navigation>
