@@ -24,6 +24,8 @@ navigationUiKtx = "2.9.0"
 firebaseDatabase = "21.0.0"
 firebaseAuth = "23.2.1"
 preference = "1.2.1"
+navigationFragmentKtxVersion = "2.9.3"
+navigationUiKtxVersion = "2.9.3"
 
 
 [libraries]
@@ -58,6 +60,8 @@ androidx-navigation-ui-ktx = { group = "androidx.navigation", name = "navigation
 firebase-database = { group = "com.google.firebase", name = "firebase-database", version.ref = "firebaseDatabase" }
 firebase-auth = { group = "com.google.firebase", name = "firebase-auth", version.ref = "firebaseAuth" }
 androidx-preference = { group = "androidx.preference", name = "preference", version.ref = "preference" }
+navigation-fragment-ktx = { group = "androidx.navigation", name = "navigation-fragment-ktx", version.ref = "navigationFragmentKtxVersion" }
+navigation-ui-ktx = { group = "androidx.navigation", name = "navigation-ui-ktx", version.ref = "navigationUiKtxVersion" }
 
 
 [plugins]

@@ -1,15 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".fragments.HomeFragment"
-    android:id="@+id/homeScreen"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:gravity="center"
-    android:padding="0dp"
-    android:background="#071091">
+    android:fillViewport="true"
+    android:background="#071091"
+    tools:context=".fragments.HomeFragment">
+    <LinearLayout
+        tools:context=".fragments.HomeFragment"
+        android:id="@+id/homeScreen"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="0dp"
+        android:background="#071091">
 
     <ImageView
         android:id="@+id/heading"
@@ -52,4 +58,5 @@
         android:layout_marginTop="20dp"/>
 
 
-</LinearLayout>
+    </LinearLayout>
+</ScrollView>
