@@ -17,16 +17,13 @@ An AI-powered **Android application** designed to help farmers detect crop disea
 <table>
   <tr>
     <td>
-      <img width="300" height="600" alt="brief" src="https://github.com/RadhapyariDevi/AI-Summarizer-Explainer-Extension/blob/main/Screenshots/brief.png" />
+      <img width="200" height="600" alt="brief" src="https://github.com/RadhapyariDevi/Crop-Disease-Detection-AI/blob/main/Screenshots/homepage.jpg" />
     </td>
     <td>
-      <img width="500" height="300" alt="Detailed" src="https://github.com/RadhapyariDevi/AI-Summarizer-Explainer-Extension/blob/main/Screenshots/detailed.png" />
+      <img width="200" height="600" alt="Detailed" src="https://github.com/RadhapyariDevi/Crop-Disease-Detection-AI/blob/main/Screenshots/healthy%20leaf.jpg" />
     </td>
     <td>
-      <img width="500" height="300" alt="easy explanation" src="https://github.com/RadhapyariDevi/AI-Summarizer-Explainer-Extension/blob/main/Screenshots/Easy%20explanation.png" />
-    </td>
-     <td>
-      <img width="500" height="300" alt="eli5" src="https://github.com/RadhapyariDevi/AI-Summarizer-Explainer-Extension/blob/main/Screenshots/explain%20like%20I'm%205%20years%20old.png" />
+      <img width="200" height="600" alt="easy explanation" src="https://github.com/RadhapyariDevi/Crop-Disease-Detection-AI/blob/main/Screenshots/affected%20leaf.jpg" />
     </td>
   </tr>
 </table>
